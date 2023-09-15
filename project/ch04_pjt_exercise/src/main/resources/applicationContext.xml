@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <bean id="memberDAO" class="ch04_pjt_exercise.dao.MemberDAO" />
+    <bean id="memberController" class="ch04_pjt_exercise.controller.MemberController" >
+    	<constructor-arg ref="memberDAO" />
+    	<constructor-arg ref="memberViewer" />
+    </bean>
+    <bean id="memberViewer" class="ch04_pjt_exercise.view.MemberViewer" />
+    <bean id="initSampleData"
+		class="ch04_pjt_exercise.utils.InitSampleData">
+		<property name="ids">
+			<array>
+				<value>hbs001</value>
+				<value>hbs002</value>
+				<value>hbs003</value>
+				<value>hbs004</value>
+				<value>hbs005</value>
+			</array>
+		</property>
+		<property name="passwords">
+			<array>
+				<value>rabbit</value>
+				<value>hippo</value>
+				<value>raccoon</value>
+				<value>elephant</value>
+				<value>lion</value>
+			</array>
+		</property>
+		<property name="contacts">
+			<array>
+				<value>p0001</value>
+				<value>p0002</value>
+				<value>p0003</value>
+				<value>p0004</value>
+				<value>p0005</value>
+			</array>
+		</property>
+		<property name="emails">
+			<array>
+				<value>agatha</value>
+				<value>barbara</value>
+				<value>chris</value>
+				<value>doris</value>
+				<value>elva</value>
+			</array>
+		</property>
+		<property name="registeredDates">
+			<array>
+				<value>19</value>
+				<value>22</value>
+				<value>20</value>
+				<value>27</value>
+				<value>19</value>
+			</array>
+		</property>
+		<property name="modifiedDates">
+			<array>
+				<value>M</value>
+				<value>W</value>
+				<value>W</value>
+				<value>M</value>
+				<value>M</value>
+			</array>
+		</property>
+		</bean>
+</beans>
